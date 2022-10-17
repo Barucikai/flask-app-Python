@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'person';
+
+img{
+max-width: 40px;
+margin: 10px;
+color: $colorPrincipal;
+}
+h1{
+    font-family:$fuenteTitel;
+    background-color: rgb(0, 0, 0);
+    color: $colorPrincipal;
+}
+//Anidaciones 
+

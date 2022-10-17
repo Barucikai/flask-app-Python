@@ -1,0 +1,32 @@
+<!-- extender un html con python-->
+{% extends 'index.html' %}
+<!-- Importat un html con python-->
+{% import 'macro.html' as macro %}
+
+{% block title %}
+    {{ super () }}
+    Bienvenido
+{% endblock %}
+
+{% block content %}
+{% if user_ip %}
+    <h1>Murcielago Cyber {{ user_ip }} </h1>
+{% else %}
+
+
+<div class="">
+
+</div>
+
+
+
+<a href="{{ url_for('index')}}">Volver al inicio</a>
+{% endif %}
+
+<ul>
+    {% for todo in todos %}
+    <!-- Aqui importamos la descripcion del macro.html gunto al todo o (lista de main.py)-->
+        {{ macro.render_todo(todo) }}
+    {% endfor %}
+</ul>
+{% endblock %}
