@@ -13,45 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Homenaje&family=Inconsolata&display=swap" rel="stylesheet">
 </head>
 <body>
-
-
     <div class="container">
 
         <header>
             {% include 'navbar.html' %}
         </header>
-        
-        <div class="row">
-            <div class="col">
-                <img class="img_1" src="{{ url_for('static', filename='img/hacker.png') }}" alt="logo">
-                <h1>Bienvenidos_1</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, sequi. 
-                    Architecto, dicta impedit unde quisquam consequuntur, laudantium rerum 
-                    quo fugit distinctio aliquam quae. Voluptatibus accusamus laborum 
-                    voluptates quaerat ut ipsam.</p>
-                    <button class="buttonEx" type="button">Explorar</button>
-            </div>
-            <div class="col">
-                <div class="card card1">
-                    <h5>Responsive Design</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="card card2">
-                    <h5>Murcyelago Cyber</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="card card3">
-                    <h5>Portafolio</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="card card4">
-                    <h5>Más info</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </div> 
-
         {% block content %}
+        
         {% endblock %}
     </div>
 

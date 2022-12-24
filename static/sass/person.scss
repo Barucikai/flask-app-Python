@@ -3,7 +3,7 @@
 @mixin BotonPrincipal($color: rgb(255, 255, 255), $fondo: #000, $text: 'Homenaje') {
     background-color: $fondo;
     color: $color;
-    font-family: $text ;
+    font-family: $text;
 }
 
 
