@@ -1,5 +1,5 @@
 from urllib import request
-from flask import Flask, request, make_response, redirect, render_template, url_for, session, url_for
+from flask import Flask, request, make_response, redirect, render_template, url_for, session, url_for, flash
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm #Para formularios #clase17
 from wtforms.fields import SearchField, PasswordField, SubmitField #clase17 #los atributos para tomar los datos y BOTON con  - wtf 🤙
@@ -72,5 +72,7 @@ def base():
         username = Login_From.username.data
         session['username'] = username
         return redirect(url_for('base'))
+    #Flash para hacer alertas usando - bootstrap y  javaScritp
+    flash('Nombre usuarios registrado con exito')
         
     return render_template('base.html', **contexts)
