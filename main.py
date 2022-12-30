@@ -4,6 +4,7 @@ from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm #Para formularios #clase17
 from wtforms.fields import SearchField, PasswordField, SubmitField #clase17 #los atributos para tomar los datos y BOTON con  - wtf 🤙
 from wtforms.validators import DataRequired
+import unittest
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app) #Incializa Bootstrap en Flask
@@ -17,6 +18,16 @@ class LoginFrom(FlaskForm):
     username = SearchField('Nombre de usuario', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Envia')
+
+#wtf FIN 
+
+#se crea el decolador y un nuevo comando - para importa 
+@app.cli.command()
+def test():
+    #Nueva estancia 
+    tests = unittest.TestLoader().discover('tests')
+    #Run para correr todos los tests 
+    unittest.TextTestRunner().run(tests)
 
 @app.errorhandler(404)
 def not_found(error):
@@ -32,13 +43,13 @@ def index():
     user_ip = request.remote_addr
     #Redirecion de hacia la pestaña de Hello
     #Nueva respuesta Make_responses
-    respose = make_response(redirect('/hello'))
+    response = make_response(redirect('/hello'))
     #ip de User se guarda en una cookie
     #PPRIMERA CLASES - 🆑 #respose.set_cookie('user_ip', user_ip)
     #Responde el index con  la ip de user
     #CLASE 16 # se retorna la ip de usuario secreta con un KEY  - METODO >>> SESSION
     session['user_ip'] = user_ip
-    return respose
+    return response
 
 @app.route('/Home')
 def Home():
