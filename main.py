@@ -1,25 +1,13 @@
 from urllib import request
-from flask import Flask, request, make_response, redirect, render_template, url_for, session, url_for, flash
-from flask_bootstrap import Bootstrap
-from flask_wtf import FlaskForm #Para formularios #clase17
-from wtforms.fields import SearchField, PasswordField, SubmitField #clase17 #los atributos para tomar los datos y BOTON con  - wtf 🤙
-from wtforms.validators import DataRequired
+from flask import request, make_response, redirect, render_template, url_for, session, url_for, flash
 import unittest
 
-app = Flask(__name__)
-bootstrap = Bootstrap(app) #Incializa Bootstrap en Flask
-#Creacion de Index
-app.config['SECRET_KEY'] = 'SUPER SECRETO'
+from app import create_app
+from app.forms import LoginFrom
 
-todos = ['Enviar dinero', 'No quiero', 'Envio facturar']
+app = create_app()
 
-#wtf para login y formaularios gunto a validaciones
-class LoginFrom(FlaskForm):
-    username = SearchField('Nombre de usuario', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Envia')
-
-#wtf FIN 
+todos = ['Comprar cafe', 'Enviar solicitud de compra', 'Entregar video a productor ']
 
 #se crea el decolador y un nuevo comando - para importa 
 @app.cli.command()

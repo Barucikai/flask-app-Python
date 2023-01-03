@@ -36,3 +36,4 @@ class MainTest(TestCase):
         response = self.client.post(url_for('base'), data=fake_form)
 
         self.assertTrue(response, url_for('base'))
+        #self.assertRedirects(response, url_for('base'))
