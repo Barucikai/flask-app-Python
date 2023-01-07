@@ -37,3 +37,9 @@ class MainTest(TestCase):
 
         self.assertTrue(response, url_for('base'))
         #self.assertRedirects(response, url_for('base'))
+        
+        def test_auth_blueprint_exists(self):
+            self.assertIn('auth', self.app.blueprints)
+        def test_auth_login_get(self):
+            response = self.client.get(url_for('auth'))
+            self.assert200(response)
