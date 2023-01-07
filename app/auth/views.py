@@ -1,4 +1,4 @@
-
+from flask import render_template
 from app.forms import LoginFrom
 from . import auth
 
@@ -6,6 +6,6 @@ from . import auth
 @auth.route('/login')
 def login():
     context = {
-        'login_form': LoginFrom()
+        'login_from': LoginFrom()
     }
-    return ''
+    return render_template('login.html', **context)
