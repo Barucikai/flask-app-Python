@@ -5,9 +5,7 @@ block head %} {{ super() }}
 
 {% endblock %} {% block body %} {% block navbar %} {% include 'navbar.html' %}
 {% endblock %}
-
-<!-- TODO: mensajes de aletra para inicio de seccion y demas funciones  -->
-
+<!--TODO: mensajes de aletra para inicio de seccion y demas funciones-->
 {% for message in get_flashed_messages() %}
 
 <div class="alert alert-success alert-dismissible">
@@ -17,16 +15,14 @@ block head %} {{ super() }}
 </div>
 
 {% endfor %}
-
-<!-- FIXME: mensajes Fin 🤙  -->
-
+<!--FIXME: mensajes Fin 🤙 -->
 {% block content %}
+<!--Incio de formalario!-->
 
 <dir class="container">
   <!-- TODO:CLASE 17-  PRIMRA FORMA PARA MOSTRAR FORMULARIOS JUNTO CON LOS CAMPOS DE FRON-END -->
-  <!--<form action="{{ url_for('base') }}" method="POST"></form>
-                    {{ Login_From.username }}
-                    {{ Login_From.username.label }}-->
+  <form action="{{ url_for('base') }}" method="POST"></form>
+  {{ Login_From.username }} {{ Login_From.username.label }}
 
   <!--FIXME: SEGUNDA FORMA CON WTF PARA FORMULARIOS Y BOOTSTRAP-->
   {{ wtf.quick_form(Login_From) }} {% if username %}

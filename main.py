@@ -54,24 +54,13 @@ def hello():
     }
     return render_template('Hola.html', **context )
 
-@app.route('/base', methods=['GET','POST'])
+@app.route('/base', methods=['GET'])
 def base():
     user_ip = session.get('user_ip')
-    Login_From = LoginFrom()
     username = session.get('username')
-    
     contexts = {
         'user_ip' : user_ip,
         'todos' : todos,
-       'Login_From': Login_From,
        'username': username
     }
-    
-    if Login_From.validate_on_submit():
-        username = Login_From.username.data
-        session['username'] = username
-        return redirect(url_for('base'))
-    #Flash para hacer alertas usando - bootstrap y  javaScritp
-    flash('Nombre usuarios registrado con exito')
-        
     return render_template('base.html', **contexts)
