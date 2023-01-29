@@ -1,15 +1,9 @@
-{% extends 'index.html' %}
-
-{% block title %}
-    {{ super () }}
-    404
-{% endblock %}
-
+{% extends 'index.html' %} {% block title %} {{ super () }} 404 {% endblock %}
 {% block content %}
 <div class="row">
-    <div class="col">
-        <h1>Error 404 </h1>
-            <p>No exite esta direccion</p>
-    </div>
+  <div class="col">
+    <h1>Error 404</h1>
+    <p>No exite esta direccion</p>
+  </div>
 </div>
 {% endblock %}

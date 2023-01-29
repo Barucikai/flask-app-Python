@@ -4,10 +4,9 @@ import unittest
 
 from app import create_app
 from app.forms import LoginFrom
+from app.firestore_service import get_users, get_todos
 
 app = create_app()
-
-todos = ['Comprar cafe', 'Enviar solicitud de compra', 'Entregar video a productor ']
 
 #se crea el decolador y un nuevo comando - para importa 
 @app.cli.command()
@@ -50,7 +49,6 @@ def hello():
     user_ip = session.get('user_ip')
     context = {
         'user_ip' : user_ip,
-        'todos' : todos,
     }
     return render_template('Hola.html', **context )
 
@@ -60,7 +58,14 @@ def base():
     username = session.get('username')
     contexts = {
         'user_ip' : user_ip,
-        'todos' : todos,
-       'username': username
+        'todos' : get_todos(user_id=username),
+       'username': username,
     }
+
+    users = get_users()
+
+    for user in users:
+        print(user.id)
+        print(user.to_dict()['password'])
+
     return render_template('base.html', **contexts)

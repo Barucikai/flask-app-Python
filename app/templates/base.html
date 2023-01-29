@@ -17,22 +17,7 @@ block head %} {{ super() }}
 {% endfor %}
 <!--FIXME: mensajes Fin 🤙 -->
 {% block content %}
-<!--Incio de formalario!-->
-
-<dir class="container">
-  <!-- TODO:CLASE 17-  PRIMRA FORMA PARA MOSTRAR FORMULARIOS JUNTO CON LOS CAMPOS DE FRON-END -->
-  <form action="{{ url_for('base') }}" method="POST"></form>
-  {{ Login_From.username }} {{ Login_From.username.label }}
-
-  <!--FIXME: SEGUNDA FORMA CON WTF PARA FORMULARIOS Y BOOTSTRAP-->
-  {{ wtf.quick_form(Login_From) }} {% if username %}
-  <h2>Bienbenido {{ username | capitalize }}</h2>
-  {% endif %} {% if user_ip %}
-  <h4>Es tu ip, {{ user_ip }}</h4>
-  {% endif %}
-</dir>
-
-{% endblock %}
+<!--Incio de formalario!-->{% endblock %}
 
 <!-- Importar archivos de javaScrits - de bootstrap -->
 
