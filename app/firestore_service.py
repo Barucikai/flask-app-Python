@@ -7,7 +7,7 @@ firebase_admin.initialize_app(credential)
 db = firestore.client()
 
 def get_users():
-    return db.collection('userss').get()
+    return db.collection('users').get()
 
 """def get_todos(class User(db.Model, UserMixin):
     Model for user accounts.
@@ -29,6 +29,4 @@ def get_users():
         return '<User {}>'.format(self.username))
 """
 def get_todos(user_id):
-    return db.collection('userss').get()\
-            .document('user_id')\
-            .collection('todos').get()
+    return db.collection('users').document(user_id).collection('todos').get()
