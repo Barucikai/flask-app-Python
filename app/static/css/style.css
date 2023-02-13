@@ -96,4 +96,11 @@ h5 {
   font-size: 8px;
 }
 
+li {
+  color: #11e771;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+}
+
 /*# sourceMappingURL=style.css.map */

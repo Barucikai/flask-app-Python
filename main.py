@@ -8,6 +8,8 @@ from app.firestore_service import get_users, get_todos
 
 app = create_app()
 
+
+
 #se crea el decolador y un nuevo comando - para importa 
 @app.cli.command()
 def test():
@@ -47,8 +49,11 @@ def hello():
     #se mustra la ipe del user que se guardo en la cookies
     #CLASE 16 # METODO SESSION - KEY IP 
     user_ip = session.get('user_ip')
+    username = session.get('username')
     context = {
         'user_ip' : user_ip,
+        'todos' : get_todos(user_id=username),
+        'username': username
     }
     return render_template('Hola.html', **context )
 
@@ -59,7 +64,7 @@ def base():
     contexts = {
         'user_ip' : user_ip,
         'todos' : get_todos(user_id=username),
-       'username': username,
+       'username': username
     }
 
     users = get_users()

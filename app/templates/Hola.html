@@ -14,13 +14,14 @@
 <div class="col">
     <h1>Murcielago Cyber {{ user_ip }} </h1>
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, sequi. 
-        Architecto, dicta impedit unde quisquam consequuntur, laudantium rerum 
+        Architecto, dicta impedit unde quisquam sconsequuntur, laudantium rerum 
         quo fugit distinctio aliquam quae. Voluptatibus accusamus laborum 
         voluptates quaerat ut ipsam.</p>
 </div>
 
 </div>
 {% else %}
+
 <a href="{{ url_for('index')}}">Volver al inicio</a>
     {% endif %}
     
@@ -30,7 +31,6 @@
             {{ macro.render_todo(todo) }}
         {% endfor %}
     </ul>
-
     {% endblock %}
 
 </div>
